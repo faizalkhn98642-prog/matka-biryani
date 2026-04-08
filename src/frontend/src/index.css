@@ -1,0 +1,192 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-display: "Instrument Serif", serif;
+    --font-body: "DM Sans", sans-serif;
+    --font-mono: "JetBrains Mono", monospace;
+    --radius: 0.375rem;
+
+    --background: 0.96 0.01 47;
+    --foreground: 0.15 0 0;
+    --card: 0.98 0.01 47;
+    --card-foreground: 0.15 0 0;
+    --popover: 0.98 0.01 47;
+    --popover-foreground: 0.15 0 0;
+
+    --primary: 0.68 0.18 48;
+    --primary-foreground: 0.98 0 0;
+
+    --secondary: 0.5 0.12 42;
+    --secondary-foreground: 0.98 0 0;
+    --muted: 0.88 0.02 47;
+    --muted-foreground: 0.4 0 0;
+
+    --accent: 0.68 0.18 48;
+    --accent-foreground: 0.98 0 0;
+
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 0.98 0 0;
+
+    --border: 0.92 0.01 47;
+    --input: 0.92 0.01 47;
+    --ring: 0.68 0.18 48;
+
+    --chart-1: 0.68 0.18 48;
+    --chart-2: 0.5 0.12 42;
+    --chart-3: 0.4 0.07 227;
+    --chart-4: 0.83 0.19 84;
+    --chart-5: 0.77 0.19 70;
+
+    --sidebar: 0.96 0.01 47;
+    --sidebar-foreground: 0.15 0 0;
+    --sidebar-primary: 0.68 0.18 48;
+    --sidebar-primary-foreground: 0.98 0 0;
+    --sidebar-accent: 0.88 0.02 47;
+    --sidebar-accent-foreground: 0.25 0 0;
+    --sidebar-border: 0.92 0.01 47;
+    --sidebar-ring: 0.68 0.18 48;
+  }
+
+  .dark {
+    --background: 0.12 0 0;
+    --foreground: 0.93 0.01 47;
+    --card: 0.16 0.01 47;
+    --card-foreground: 0.93 0.01 47;
+    --popover: 0.2 0.01 47;
+    --popover-foreground: 0.93 0.01 47;
+
+    --primary: 0.72 0.22 48;
+    --primary-foreground: 0.12 0 0;
+
+    --secondary: 0.58 0.15 42;
+    --secondary-foreground: 0.92 0.01 47;
+    --muted: 0.22 0.01 47;
+    --muted-foreground: 0.62 0.01 47;
+
+    --accent: 0.72 0.22 48;
+    --accent-foreground: 0.12 0 0;
+
+    --destructive: 0.65 0.19 22;
+    --destructive-foreground: 0.12 0 0;
+
+    --border: 0.24 0.01 47;
+    --input: 0.24 0.01 47;
+    --ring: 0.72 0.22 48;
+
+    --chart-1: 0.72 0.22 48;
+    --chart-2: 0.58 0.15 42;
+    --chart-3: 0.77 0.19 70;
+    --chart-4: 0.63 0.27 304;
+    --chart-5: 0.65 0.25 16;
+
+    --sidebar: 0.16 0.01 47;
+    --sidebar-foreground: 0.93 0.01 47;
+    --sidebar-primary: 0.72 0.22 48;
+    --sidebar-primary-foreground: 0.12 0 0;
+    --sidebar-accent: 0.22 0.01 47;
+    --sidebar-accent-foreground: 0.92 0.01 47;
+    --sidebar-border: 0.24 0.01 47;
+    --sidebar-ring: 0.72 0.22 48;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@font-face {
+  font-family: "Instrument Serif";
+  src: url("/assets/fonts/InstrumentSerif-Italic.woff2") format("woff2");
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Instrument Serif";
+  src: url("/assets/fonts/InstrumentSerif-Regular.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "DM Sans";
+  src: url("/assets/fonts/DMSans.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/assets/fonts/JetBrainsMono.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@layer utilities {
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .text-accent-warm {
+    @apply text-accent;
+  }
+
+  .shadow-card {
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.28);
+  }
+
+  .shadow-elevated {
+    box-shadow: 0 8px 24px 0 rgba(0, 0, 0, 0.36);
+  }
+
+  .shadow-soft {
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.16);
+  }
+
+  .rounded-subtle {
+    @apply rounded-sm;
+  }
+
+  .rounded-soft {
+    @apply rounded-md;
+  }
+
+  /* Scroll reveal base state */
+  .reveal-hidden {
+    opacity: 0;
+    transform: translateY(1.5rem);
+  }
+
+  .reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  }
+
+  /* Section divider with gold accent */
+  .section-divider {
+    @apply w-12 h-px bg-primary mx-auto my-6 opacity-60;
+  }
+
+  /* Gold text — maps to the primary design token */
+  .text-gold {
+    color: oklch(var(--primary));
+  }
+
+  /* Subtle background variant for alternating sections */
+  .bg-section-alt {
+    background-color: oklch(var(--card));
+  }
+}
